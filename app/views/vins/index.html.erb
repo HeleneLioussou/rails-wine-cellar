@@ -1,0 +1,11 @@
+<h1>Liste des vins</h1>
+
+ <% @vins.each do |v| %>
+<ul>
+  <li><%= v.appellation %> - <%= v.couleur %></li>
+</ul>
+<% end %>
+
+<p>
+  <%= link_to "Référencer un nouveau vin", new_vin_path %>
+</p>

@@ -1,0 +1,15 @@
+<h1>Référencez un nouveau vin</h1>
+
+<p>
+      <%= simple_form_for [@vin] do |v| %>
+        <%= v.input :categorie %>
+        <%= v.input :appellation %>
+        <%= v.input :contenance %>
+        <%= v.input :couleur %>
+        <%= v.input :localite %>
+        <%= v.input :domaine %>
+
+
+        <%= v.submit "Référencer ce vin", class: "btn btn-secondary btn-sm" %>
+      <% end %>
+</p>

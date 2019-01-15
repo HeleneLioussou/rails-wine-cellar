@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   resources :caves do
     member do                     # member => restaurant id in URL
-      get 'vins', to: "caves#vins"
+      get 'bouteilles', to: "caves#bouteilles"
     end
-    resources :bouteilles
   end
 
-  resources :vin
+  resources :vins
+  resources :bouteilles
 
 
 end

@@ -1,0 +1,23 @@
+<div class="navbar-vin">
+  <h1 class="navbar-font">Les caves de Jean L.</h1>
+</div>
+
+<div class="clickable-card">
+  <%= link_to cafe_path(Cave.first) do %>
+    <div class="cave_box_cambou">
+      <div class="cave_box_text">
+        <h2 ><%= Cave.first.name %></h2>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
+<div class="clickable-card">
+  <%= link_to cafe_path(Cave.second) do %>
+    <div class="cave_box_gaylussac">
+      <div class="cave_box_text">
+        <h2 ><%= Cave.second.name %></h2>
+      </div>
+    </div>
+  <% end %>
+</div>

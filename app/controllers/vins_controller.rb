@@ -1,0 +1,2 @@
+class VinsController < ApplicationController
+end

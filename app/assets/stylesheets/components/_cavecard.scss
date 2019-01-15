@@ -1,0 +1,44 @@
+.cave_box_cambou {
+  display: flex;
+  height: 300px;
+  width: 100vw;
+  background-image: url("cambou.jpg");
+  background-position: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.cave_box_cambou:hover {
+  background: linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)), url(cambou.jpg);
+}
+
+
+.cave_box_text {
+  margin: 20px 10px;
+}
+
+.cave_box_text h2 {
+  font-family: 'Great Vibes', cursive !important;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+.cave_box_gaylussac {
+  display: flex;
+  height: 300px;
+  width: 100vw;
+  background-image: url("gaylussac.jpg");
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.cave_box_gaylussac:hover {
+  background: linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)), url(gaylussac.jpg);
+  background-size: cover;
+}

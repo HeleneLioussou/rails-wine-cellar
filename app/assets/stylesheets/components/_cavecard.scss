@@ -3,13 +3,15 @@
   height: 300px;
   width: 100vw;
   background-image: url("cambou.jpg");
-  background-position: cover;
+  background-size: cover;
   justify-content: center;
   align-items: center;
 }
 
 .cave_box_cambou:hover {
   background: linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)), url(cambou.jpg);
+  background-size: cover;
+
 }
 
 
@@ -21,6 +23,8 @@
   font-family: 'Great Vibes', cursive !important;
   color: white;
   text-decoration: none;
+  text-shadow: 1px 2px 3px rgba(0,0,0, 0.8);
+
 }
 
 a:hover {
@@ -41,4 +45,8 @@ a:hover {
 .cave_box_gaylussac:hover {
   background: linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)), url(gaylussac.jpg);
   background-size: cover;
+}
+
+.clickable-card {
+  margin-bottom: 5px;
 }

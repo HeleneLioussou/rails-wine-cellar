@@ -9,14 +9,13 @@
   <% end %>
 </div>
 
-<h1>Liste des vins référencés</h1>
+<h1> <%= @cellar.name  %></h1>
 
- <% @vins.each do |v| %>
-<ul>
-  <li><%= v.appellation %> - <%= v.couleur %></li>
+
+<%= link_to "Retourner à la liste de caves", cellars_path %>
+
+
+<p>Ajouter un vin référencé à votre cave</p>
+
+
 </ul>
-<% end %>
-
-<p>
-  <%= link_to "Référencer un nouveau vin", new_vin_path %>
-</p>

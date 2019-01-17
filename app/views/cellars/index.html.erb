@@ -1,21 +1,28 @@
 <div class="navbar-vin">
+  <%= link_to cellars_path do %>
   <h1 class="navbar-font">Les caves de Jean L.</h1>
+  <% end %>
+  <%= link_to vins_path do %>
+  <div class="addwine">
+  <%=  image_tag "bouteille.png"%>
+  </div>
+  <% end %>
 </div>
 
 <div class="clickable-card">
-  <%= link_to cafe_path(Cave.first) do %>
+  <%= link_to cellar_path(Cellar.first) do %>
     <div class="cave_box_cambou">
       <div class="cave_box_text">
-        <h2 ><%= Cave.first.name %></h2>
+        <h2 ><%= Cellar.first.name %></h2>
       </div>
     </div>
   <% end %>
 </div>
 <div class="clickable-card">
-  <%= link_to cafe_path(Cave.second) do %>
+  <%= link_to cellar_path(Cellar.second) do %>
     <div class="cave_box_gaylussac">
       <div class="cave_box_text">
-        <h2 ><%= Cave.second.name %></h2>
+        <h2 ><%= Cellar.second.name %></h2>
       </div>
     </div>
   <% end %>

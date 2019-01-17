@@ -1,4 +1,3 @@
 class Bouteille < ApplicationRecord
-  belongs_to :cave
-  belongs_to :vin
+  belongs_to :cellar
 end

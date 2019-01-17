@@ -1,0 +1,9 @@
+<h1>Voici la liste des bouteilles de cette cave</h1>
+
+<ul> <% @bouteilles.each do |b| %>
+  <li>
+    <%= b.millesime %>
+  </li>
+<% end %>
+</ul>
+

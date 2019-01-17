@@ -17,5 +17,11 @@
 
 <p>Ajouter un vin référencé à votre cave</p>
 
+<p>Tous les bouteilles de ma cave</p>
 
+<ul><% @cellar.bouteilles.each do |b| %>
+  <li>
+    <%= b.millesime %>
+  </li>
+<% end %>
 </ul>

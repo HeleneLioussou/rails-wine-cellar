@@ -13,9 +13,8 @@
 
 <p>
       <%= simple_form_for [@cellar, @bouteille] do |b| %>
+        <%= b.association :vin, :collection => Vin.all.order(:appellation), :label_method => :complete_denomination, label: 'Appellation', as: :radio_buttons%>
         <%= b.input :millesime %>
-        <%= b.input :statut %>
-
         <%= b.submit "Ajouter une bouteille à ma cave", class: "btn btn-secondary btn-sm" %>
       <% end %>
 </p>

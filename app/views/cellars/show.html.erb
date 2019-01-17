@@ -12,16 +12,19 @@
 <h1> <%= @cellar.name  %></h1>
 
 
-<%= link_to "Retourner à la liste de caves", cellars_path %>
 
-
-<p>Ajouter un vin référencé à votre cave</p>
-
-<p>Tous les bouteilles de ma cave</p>
+<p>Tous les bouteilles de ma cave à consommer en préférence </p>
 
 <ul><% @cellar.bouteilles.each do |b| %>
   <li>
-    <%= b.millesime %>
+    <%= b.millesime %> - <%= b.vin.appellation  %>
   </li>
 <% end %>
 </ul>
+
+
+
+<%= link_to "Ajouter une nouvelle bouteille à votre cave", new_cellar_bouteille_path(params[:id]) %>
+
+<p> Si le vin ne fait pas déjà partie de votre cave, commencez par le référencer</p>
+

@@ -13,10 +13,10 @@
 
 <p>
       <%= simple_form_for [@vin] do |v| %>
-        <%= v.input :categorie %>
+        <%= v.input :categorie, collection: ["Vin", "Champagne", "Petillant"] %>
         <%= v.input :appellation %>
         <%= v.input :contenance %>
-        <%= v.input :couleur %>
+        <%= v.input :couleur, collection: ["rouge", "rosé", "blanc"] %>
         <%= v.input :localite %>
         <%= v.input :domaine %>
 

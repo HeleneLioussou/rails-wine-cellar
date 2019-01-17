@@ -11,7 +11,7 @@
 
 <h1>Liste des vins référencés</h1>
 
- <% @vins.each do |v| %>
+ <% @vins.order("appellation asc").each do |v| %>
 <ul>
   <li><%= v.appellation %> - <%= v.couleur %></li>
 </ul>
@@ -22,5 +22,12 @@
 </p>
 
 <p>
-  <%= link_to "Ajouter une bouteille de ces vins à l'un de vos caves", cellars_path %>
+Ajouter une bouteille de ces vins à l'un de vos caves
+
+
+
 </p>
+
+<%= link_to "#{Cellar.first.name}", new_cellar_bouteille_path(Cellar.first)  %>
+<br>
+<%= link_to "#{Cellar.second.name}", new_cellar_bouteille_path(Cellar.first)  %>

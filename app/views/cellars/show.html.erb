@@ -9,22 +9,246 @@
   <% end %>
 </div>
 
-<h1> <%= @cellar.name  %></h1>
+<!-- ================================ci-dessous Boites recap par cave
+ -->
 
+<% if @cellar.id == 1 %>
 
+<div class= "wine_recap_cambou">
 
-<p>Tous les bouteilles de ma cave à consommer en préférence </p>
+  <div class = "cellar_info">
+    <% vin_rouge = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rouge" %>
+        <% vin_rouge << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle" >  <%= vin_rouge.length %> </div>
 
-<ul><% @cellar.bouteilles.each do |b| %>
-  <li>
-    <%= b.millesime %> - <%= b.vin.appellation  %>
-  </li>
+  <div class = "bottle_category"> Vins Rouges </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% vin_blanc = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "blanc" %>
+        <% vin_blanc << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= vin_blanc.length %> </div>
+  <div class = "bottle_category"> Vins Blancs </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% vin_rose = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rosé" %>
+        <% vin_rose << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= vin_rose.length %> </div>
+  <div class = "bottle_category"> Vins Rosés </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% champagne = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Champagne"%>
+        <% vin_rose << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= champagne.length %> </div>
+  <div class = "bottle_category"> Champagnes </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% petillant = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Petillant"%>
+        <% vin_rose << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= petillant.length %> </div>
+  <div class = "bottle_category"> Vins Pétillants </div>
+  </div>
+
+</div>
+
+<% else  %>
+
+<div class= "wine_recap_claudebernard">
+
+  <div class = "cellar_info">
+    <% vin_rouge = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rouge" %>
+        <% vin_rouge << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle" >  <%= vin_rouge.length %> </div>
+
+  <div class = "bottle_category"> Vins Rouges </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% vin_blanc = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "blanc" %>
+        <% vin_blanc << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= vin_blanc.length %> </div>
+  <div class = "bottle_category"> Vins Blancs </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% vin_rose = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rosé" %>
+        <% vin_rose << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= vin_rose.length %> </div>
+  <div class = "bottle_category"> Vins Rosés </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% champagne = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Champagne"%>
+        <% vin_rose << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= champagne.length %> </div>
+  <div class = "bottle_category"> Champagnes </div>
+  </div>
+
+  <div class = "cellar_info">
+    <% petillant = [] %>
+    <% @bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Petillant"%>
+        <% vin_rose << b %>
+      <% end %>
+    <% end %>
+  <div class = "number_bottle"> <%= petillant.length %> </div>
+  <div class = "bottle_category"> Vins Pétillants </div>
+  </div>
+
+</div>
+
 <% end %>
-</ul>
 
+<div class="wine_list">
 
+  <ul class="responsive-table">
+      <li class="table-header">
+        <div class="colonne-1">Vins Rouges de <%= @cellar.name %></div>
+        <div class="col-2">Domaine</div>
+        <div class="col-3">Millesime</div>
+        <div class="col-4">Conservation</div>
+      </li>
+      <% @cellar.bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rouge" %>
+      <li class="table-row">
+        <div class="colonne-1" data-label="Job Id"><%= b.vin.appellation  %></div>
+        <div class="col-2" data-label="Customer Name"> <%= b.vin.domaine  %></div>
+        <div class="col-3" data-label="Amount"> <%= b.millesime  %></div>
+        <div class="col-4" data-label="Payment Status"><%= b.apogee  %></div>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
 
-<%= link_to "Ajouter une nouvelle bouteille à votre cave", new_cellar_bouteille_path(params[:id]) %>
+</div>
 
-<p> Si le vin ne fait pas déjà partie de votre cave, commencez par le référencer</p>
+<div class="wine_list">
+
+  <ul class="responsive-table">
+      <li class="table-header">
+        <div class="colonne-1">Vins Blancs de <%= @cellar.name %></div>
+        <div class="col-2">Domaine</div>
+        <div class="col-3">Millesime</div>
+        <div class="col-4">Conservation</div>
+      </li>
+      <% @cellar.bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "blanc" %>
+      <li class="table-row">
+        <div class="colonne-1" data-label="Job Id"><%= b.vin.appellation  %></div>
+        <div class="col-2" data-label="Customer Name"> <%= b.vin.domaine  %></div>
+        <div class="col-3" data-label="Amount"> <%= b.millesime  %></div>
+        <div class="col-4" data-label="Payment Status"><%= b.apogee  %></div>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>
+<div class="wine_list">
+
+  <ul class="responsive-table">
+      <li class="table-header">
+        <div class="colonne-1">Vins Rosés de <%= @cellar.name %></div>
+        <div class="col-2">Domaine</div>
+        <div class="col-3">Millesime</div>
+        <div class="col-4">Conservation</div>
+      </li>
+      <% @cellar.bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rosé" %>
+      <li class="table-row">
+        <div class="colonne-1" data-label="Job Id"><%= b.vin.appellation  %></div>
+        <div class="col-2" data-label="Customer Name"> <%= b.vin.domaine  %></div>
+        <div class="col-3" data-label="Amount"> <%= b.millesime  %></div>
+        <div class="col-4" data-label="Payment Status"><%= b.apogee  %></div>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>
+<div class="wine_list">
+
+  <ul class="responsive-table">
+      <li class="table-header">
+        <div class="colonne-1">Champagnes de <%= @cellar.name %></div>
+        <div class="col-2">Domaine</div>
+        <div class="col-3">Millesime</div>
+        <div class="col-4">Conservation</div>
+      </li>
+      <% @cellar.bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Champagne" %>
+      <li class="table-row">
+        <div class="colonne-1" data-label="Job Id"><%= b.vin.appellation  %></div>
+        <div class="col-2" data-label="Customer Name"> <%= b.vin.domaine  %></div>
+        <div class="col-3" data-label="Amount"> <%= b.millesime  %></div>
+        <div class="col-4" data-label="Payment Status"><%= b.apogee  %></div>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>
+<div class="wine_list">
+
+  <ul class="responsive-table">
+      <li class="table-header">
+        <div class="colonne-1">Pétillants de <%= @cellar.name %></div>
+        <div class="col-2">Domaine</div>
+        <div class="col-3">Millesime</div>
+        <div class="col-4">Conservation</div>
+      </li>
+      <% @cellar.bouteilles.each do |b| %>
+      <% if b.vin.categorie == "Petillant" %>
+      <li class="table-row">
+        <div class="colonne-1" data-label="Job Id"><%= b.vin.appellation  %></div>
+        <div class="col-2" data-label="Customer Name"> <%= b.vin.domaine  %></div>
+        <div class="col-3" data-label="Amount"> <%= b.millesime  %></div>
+        <div class="col-4" data-label="Payment Status"><%= b.apogee  %></div>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>
+
+<p class="center"><%= link_to "Ajouter une bouteille déjà référencée à la cave", new_cellar_bouteille_path(params[:id]) %></p>
 

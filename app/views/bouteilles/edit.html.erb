@@ -9,28 +9,55 @@
   <% end %>
 </div>
 
-<h1>Marquer comme bue à <%= @cellar.name %></h1>
-<p>
-  <%= simple_form_for [@cellar, @bouteille] do |b| %>
-    <%= b.input :statut, collection: ["bu"]%>
-    <%= b.submit "Sortir de la Cave", class: "btn btn-secondary btn-sm" %>
-  <% end %>
-</p>
 
 
 
-<h1>Modifier cette bouteille de la Cave de <%= @cellar.name %></h1>
+<div class="edit_bottle">
 
-<p>
-  <%= simple_form_for [@cellar, @bouteille] do |b| %>
-    <%= b.association :vin, :collection => Vin.all.order(:appellation), :label_method => :complete_denomination, label: 'Appellation', as: :radio_buttons%>
-    <%= b.input :millesime %>
-    <%= b.submit "Modifier", class: "btn btn-secondary btn-sm" %>
-  <% end %>
-</p>
+  <div class="etiquette">
+    <div class="etiquette_image">
+      <%= image_tag "etiquette.png"%>
+    </div>
+    <div class="bottle_info huge">
+      <div class="funky_font hugeX"> <%= @bouteille.vin.appellation.capitalize %>
+      </div>
+      <br>
+      <%= @bouteille.millesime %>
+      <br>
+      <br>
+      <%= @bouteille.vin.localite %>
+      <br>
+      <%= @bouteille.vin.domaine %>
+    </div>
+  </div>
 
-<h1>Supprimer cette bouteille de la Cave de <%= @cellar.name %></h1>
+  <div class="bu">
+  <br>
+  <br>
+    <%= simple_form_for [@cellar, @bouteille] do |b| %>
+      <%= b.input :statut, collection: ["bu"], label: "---- Marquer comme bu ----"%>
+      <%= b.submit "Sortir de la Cave", class: "btn btn-secondary btn-sm colorful" %>
+    <% end %>
 
-  <%= link_to '<i class="far fa-minus-square"></i>'.html_safe, cellar_bouteille_path(params[:id]),
+  <br>
+  <br>
+
+    <p>---- Modifier cette bouteille ----</p>
+
+    <p>
+      <%= simple_form_for [@cellar, @bouteille] do |b| %>
+        <%= b.association :vin, :collection => Vin.all.order(:appellation), :label_method => :complete_denomination, label: 'Appellation'%>
+        <%= b.input :millesime %>
+        <%= b.submit "Modifier", class: "btn btn-secondary btn-sm colorful" %>
+      <% end %>
+    </p>
+
+  <br>
+  <br>
+
+  <p> ---- Supprimer ---- </p>  <%= link_to '<i class="far fa-minus-square"></i>'.html_safe, cellar_bouteille_path(params[:id]),
           method: :delete,
           data: { confirm: "Etes-vous sûr de vouloir supprimer cette bouteille ?" }  %>
+  </div>
+
+</div>

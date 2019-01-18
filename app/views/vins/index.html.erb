@@ -9,25 +9,36 @@
   <% end %>
 </div>
 
-<h1>Liste des vins référencés</h1>
-
- <% @vins.order("appellation asc").each do |v| %>
-<ul>
-  <li><%= v.appellation %> - <%= v.couleur %></li>
-</ul>
-<% end %>
-
-<p>
-  <%= link_to "Référencer un nouveau vin", new_vin_path %>
-</p>
-
-<p>
-Ajouter une bouteille de ces vins à l'un de vos caves
 
 
+<div class="wine_manager">
 
-</p>
+  <div class="left_part">
 
-<%= link_to "#{Cellar.first.name}", new_cellar_bouteille_path(Cellar.first)  %>
-<br>
-<%= link_to "#{Cellar.second.name}", new_cellar_bouteille_path(Cellar.first)  %>
+    <div class="liste">
+      <h3 class="alignement">Vins référencés</h3>
+      <% @vins.order("localite asc").order("appellation asc").each do |v| %>
+        <ul>
+          <li><%= v.categorie.upcase%> <%= v.localite.upcase %> <%= v.appellation %> <%= v.domaine %> <i><%= v.couleur %></i> <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, vin_path(v.id),
+              method: :delete,
+              data: { confirm: "Etes-vous sûr de vouloir supprimer ce vin ?" }  %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="action_part">
+    <%= link_to "Nouveau", new_vin_path %>
+    </div>
+
+  </div>
+
+  <div class="right_part">
+    <h3>Ajouter en Cave</h3>
+    <div class="cave_button funky_font"><%= link_to "#{Cellar.first.name}", new_cellar_bouteille_path(Cellar.first)  %></div>
+    <div class="cave_button funky_font"> <%= link_to "#{Cellar.second.name}", new_cellar_bouteille_path(Cellar.second)  %></div>
+  </div>
+
+</div>
+
+

@@ -16,6 +16,13 @@ class VinsController < ApplicationController
     redirect_to vins_path
   end
 
+  def destroy
+    @vin = Vin.find(params[:id])
+    @vin.destroy
+    redirect_to vins_path
+  end
+
+
   private
 
   def vin_params

@@ -9,18 +9,38 @@
   <% end %>
 </div>
 
-<h1>Référencez un nouveau vin</h1>
+
+
+
+<div class="wine_manager">
+
+  <div class="left_part_form">
+
+    <div class="liste_form">
+      <div><h3>Référencez un nouveau vin</h3></div>
+      <div>
+        <%= simple_form_for [@vin] do |v| %>
+          <%= v.input :categorie, collection: ["Vin", "Champagne", "Petillant"] %>
+          <%= v.input :couleur, collection: ["rouge", "rosé", "blanc"] %>
+          <%= v.input :localite , collection: ["Alsace","Amérique du Sud Rouge", "Australie Rouge","Beaujolais" , "Bourgogne - Saône et Loire", "Bourgogne - Côte d'Or","Bourgogne - Saône et Loire Blanc", "Bourgogne - Côte d'Or Blanc", "Bordeaux Rouge", "Bordeaux Grands Crus","Bordeaux Blanc Sec", "Bordeaux Blanc Liquoreux","Californie Rouge", "Champagne", "Côtes du Rhône", "Côtes du Rhône Blanc", "Côtes du Rhône Grands Crus","Espagne Rouge", "Italie Rouge","Jura", "Languedoc et Provence","Languedoc et Provence Blanc", "Languedoc rosé", "Loire Rouge", "Loire Blanc Sec", "Loire Blanc Moelleux et Liquoreux", "Provence rosé", "Rhône rosé","Sud-Ouest", "Sud-Ouest Blanc Sec", "Sud-Ouest Blanc Liquoreux"] %>
+          <%= v.input :appellation %>
+          <%= v.input :contenance %>
+          <%= v.input :domaine %>
+
+          <%= v.submit "Référencer ce vin", class: "btn btn-secondary btn-sm" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="right_part">
+
+
+  </div>
+
+</div>
 
 <p>
-      <%= simple_form_for [@vin] do |v| %>
-        <%= v.input :categorie, collection: ["Vin", "Champagne", "Petillant"] %>
-        <%= v.input :appellation %>
-        <%= v.input :contenance %>
-        <%= v.input :couleur, collection: ["rouge", "rosé", "blanc"] %>
-        <%= v.input :localite %>
-        <%= v.input :domaine %>
 
-
-        <%= v.submit "Référencer ce vin", class: "btn btn-secondary btn-sm" %>
-      <% end %>
 </p>

@@ -9,12 +9,36 @@
   <% end %>
 </div>
 
+
+<div class="wine_manager">
+
+  <div class="left_part">
+
+    <div class="liste">
+      <div class= "alignement">  <%= simple_form_for [@cellar, @bouteille] do |b| %>
+        <%= b.association :vin, :collection => Vin.all.order(:appellation), :label_method => :complete_denomination, label: 'Sélectionnez le vin', as: :radio_buttons%>
+        <%= b.input :millesime, label: "Entrez l'année - Le Millésime :" %>
+        <%= b.submit "Ajouter une bouteille à ma cave", class: "btn btn-secondary btn-sm colorful" %>
+      <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="right_part">
+    <h3>Ajouter en Cave</h3>
+
+  </div>
+
+</div>
+
+
+
+
+
 <h1>Ajoutez une bouteille de vin référencé à votre cave de <%= @cellar.name %></h1>
 
 <p>
-      <%= simple_form_for [@cellar, @bouteille] do |b| %>
-        <%= b.association :vin, :collection => Vin.all.order(:appellation), :label_method => :complete_denomination, label: 'Appellation', as: :radio_buttons%>
-        <%= b.input :millesime %>
-        <%= b.submit "Ajouter une bouteille à ma cave", class: "btn btn-secondary btn-sm" %>
-      <% end %>
+
 </p>
+

@@ -16,12 +16,29 @@ class BouteillesController < ApplicationController
     @bouteille.vin = Vin.find(params[:bouteille][:vin_id])
     @bouteille.save
 
-    redirect_to cellar_bouteilles_path
+    redirect_to cellar_path(params[:cellar_id])
+  end
+
+
+  def edit
+    @bouteille = Bouteille.find(params[:id])
+    @cellar = Cellar.find(params[:cellar_id])
+
+  end
+
+  def update
+    @bouteille = Bouteille.find(params[:id])
+    @cellar = Cellar.find(params[:cellar_id])
+
+    @bouteille.update(bouteille_params)
+    redirect_to cellar_path(params[:cellar_id])
   end
 
   def destroy
     @bouteille = Bouteille.find(params[:id])
+    cellar = @bouteille.cellar
     @bouteille.destroy
+    redirect_to cellar_path(cellar)
   end
 
 

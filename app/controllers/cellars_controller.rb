@@ -24,6 +24,13 @@ class CellarsController < ApplicationController
     redirect_to cellars_path
   end
 
+
+  def destroy
+    @cellar = Cellar.find(params[:id])
+    @cellar.destroy
+    redirect_to cellars_path(current_user)
+  end
+
     private
 
   def cellar_params

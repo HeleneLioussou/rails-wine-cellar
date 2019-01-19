@@ -35,8 +35,9 @@
 
   <div class="right_part">
     <h3>Ajouter en Cave</h3>
-    <div class="cave_button funky_font"><%= link_to "#{Cellar.first.name}", new_cellar_bouteille_path(Cellar.first)  %></div>
-    <div class="cave_button funky_font"> <%= link_to "#{Cellar.second.name}", new_cellar_bouteille_path(Cellar.second)  %></div>
+    <% @user.cellars.each do |c| %>
+    <div class="cave_button funky_font"><%= link_to "#{c.name}", new_cellar_bouteille_path(c)  %></div>
+    <% end %>
   </div>
 
 </div>

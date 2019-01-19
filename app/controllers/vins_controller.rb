@@ -2,6 +2,7 @@ class VinsController < ApplicationController
 
   def index
     @vins = Vin.all
+    @user = current_user
   end
 
 

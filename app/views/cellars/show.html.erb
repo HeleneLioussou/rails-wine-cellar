@@ -114,7 +114,7 @@
             --
           <% end %>
         </div>
-        <div class="col-5" data-label="Payment Status"><%= b.statut%> <%= link_to '<i class="fas fa-wine-glass-alt"></i>'.html_safe, edit_cellar_bouteille_path(params[:id],b.id)  %></div>
+        <div class="col-5" data-label="Payment Status"><%= link_to '<i class="fas fa-wine-glass-alt"></i>'.html_safe, edit_cellar_bouteille_path(params[:id],b.id)  %></div>
       </li>
       <% end %>
     <% end %>

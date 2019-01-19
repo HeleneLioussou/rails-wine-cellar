@@ -54,13 +54,13 @@ a:hover {
   display: flex;
   height: 300px;
   width: 100vw;
-  background-image: url("images/newcellar.jpeg");
+  background-image: url("newcellar.jpeg");
   background-size: cover;
   justify-content: center;
   align-items: center;
 }
 
 .cave_box_newcellar:hover {
-  background: linear-gradient(to right, rgba(178, 137, 82, 0.3), rgba(144, 30, 41, 0.1)), url(images/newcellar.jpeg);
+  background: linear-gradient(to right, rgba(178, 137, 82, 0.3), rgba(144, 30, 41, 0.1)), url(newcellar.jpeg);
   background-size: cover;
 }

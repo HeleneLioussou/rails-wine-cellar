@@ -5,7 +5,7 @@
   <div class = "cellar_info">
     <% vin_rouge = [] %>
     <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rouge" && b.statut == nil %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rouge" %>
         <% vin_rouge << b %>
       <% end %>
     <% end %>
@@ -17,7 +17,7 @@
   <div class = "cellar_info">
     <% vin_blanc = [] %>
     <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Vin" && b.vin.couleur == "blanc" && b.statut == nil  %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "blanc" %>
         <% vin_blanc << b %>
       <% end %>
     <% end %>
@@ -28,7 +28,7 @@
   <div class = "cellar_info">
     <% vin_rose = [] %>
     <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rosé" && b.statut == nil %>
+      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rosé" %>
         <% vin_rose << b %>
       <% end %>
     <% end %>
@@ -39,7 +39,7 @@
   <div class = "cellar_info">
     <% champagne = [] %>
     <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Champagne" && b.statut == nil %>
+      <% if b.vin.categorie == "Champagne" %>
         <% champagne << b %>
       <% end %>
     <% end %>
@@ -50,7 +50,7 @@
   <div class = "cellar_info">
     <% petillant = [] %>
     <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Petillant" && b.statut == nil %>
+      <% if b.vin.categorie == "Petillant" %>
         <% petillant << b %>
       <% end %>
     <% end %>
@@ -74,7 +74,6 @@
         <div class="col-5"></div>
       </li>
       <% @cellar.bouteilles.each do |b| %>
-      <% if b.statut == nil %>
       <% if b.vin.categorie == "Vin" && b.vin.couleur == "rouge" %>
       <li class="table-row">
         <div class="colonne-1" data-label="Job Id"><%= b.vin.localite  %> <%= b.vin.appellation  %> </div>
@@ -118,7 +117,6 @@
         <div class="col-5" data-label="Payment Status"><%= b.statut%> <%= link_to '<i class="fas fa-wine-glass-alt"></i>'.html_safe, edit_cellar_bouteille_path(params[:id],b.id)  %></div>
       </li>
       <% end %>
-      <% end %>
     <% end %>
   </ul>
 
@@ -135,7 +133,6 @@
         <div class="col-5"></div>
       </li>
       <% @cellar.bouteilles.each do |b| %>
-      <% if b.statut == nil %>
       <% if b.vin.categorie == "Vin" && b.vin.couleur == "blanc" %>
       <li class="table-row">
         <div class="colonne-1" data-label="Job Id"><%= b.vin.localite  %> <%= b.vin.appellation  %></div>
@@ -175,7 +172,6 @@
         <div class="col-5" data-label="Payment Status"><%= link_to '<i class="fas fa-wine-glass-alt"></i>'.html_safe, edit_cellar_bouteille_path(params[:id],b.id)  %></div>      </li>
       <% end %>
     <% end %>
-    <% end %>
   </ul>
 
 </div>
@@ -190,7 +186,6 @@
         <div class="col-5"></div>
       </li>
       <% @cellar.bouteilles.each do |b| %>
-      <% if b.statut == nil %>
       <% if b.vin.categorie == "Vin" && b.vin.couleur == "rosé" %>
       <li class="table-row">
         <div class="colonne-1" data-label="Job Id"><%= b.vin.localite  %> <%= b.vin.appellation  %></div>
@@ -209,7 +204,6 @@
         </div>
         <div class="col-5" data-label="Payment Status"><%= link_to '<i class="fas fa-wine-glass-alt"></i>'.html_safe, edit_cellar_bouteille_path(params[:id],b.id)  %></div>      </li>
       <% end %>
-      <% end %>
     <% end %>
   </ul>
 
@@ -225,7 +219,6 @@
         <div class="col-5"></div>
       </li>
       <% @cellar.bouteilles.each do |b| %>
-      <% if b.statut == nil %>
       <% if b.vin.categorie == "Champagne" %>
       <li class="table-row">
         <div class="colonne-1" data-label="Job Id"><%= b.vin.localite  %> <%= b.vin.appellation  %></div>
@@ -239,7 +232,6 @@
           <% end %>
         </div>
         <div class="col-5" data-label="Payment Status"><%= link_to '<i class="fas fa-wine-glass-alt"></i>'.html_safe, edit_cellar_bouteille_path(params[:id],b.id)  %></div>      </li>
-      <% end %>
       <% end %>
     <% end %>
   </ul>
@@ -257,7 +249,6 @@
 
       </li>
       <% @cellar.bouteilles.each do |b| %>
-      <% if b.statut == nil %>
 
       <% if b.vin.categorie == "Petillant" %>
       <li class="table-row">
@@ -266,7 +257,6 @@
         <div class="col-3" data-label="Amount"> <%= b.millesime  %></div>
         <div class="col-4" data-label="Payment Status"><%= b.millesime.to_i + 1 %></div>
         <div class="col-5" data-label="Payment Status"><%= link_to '<i class="fas fa-wine-glass-alt"></i>'.html_safe, edit_cellar_bouteille_path(params[:id],b.id)  %></div>      </li>
-      <% end %>
       <% end %>
     <% end %>
   </ul>

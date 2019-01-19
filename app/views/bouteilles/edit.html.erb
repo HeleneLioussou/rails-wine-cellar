@@ -18,8 +18,11 @@
   </div>
 
 
-    <p> ---- Sortir cette Bouteille de votre Cave ---- </p>  <%= link_to 'Bu'.html_safe, cellar_bouteille_path(params[:id]),
+  <div class="bu">
+
+    <p> ---- Sortir cette Bouteille de votre Cave ---- </p>  <%= link_to 'Bu', cellar_bouteille_path(params[:id]),
           method: :delete,
+          class: "btn btn-secondary btn-sm colorful",
           data: { confirm: "Etes-vous sûr de vouloir supprimer cette bouteille ?" }  %>
 
   <br>
@@ -35,3 +38,4 @@
       <% end %>
     </p>
 
+</div>

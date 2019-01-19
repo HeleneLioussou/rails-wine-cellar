@@ -45,6 +45,6 @@ class BouteillesController < ApplicationController
   private
 
   def bouteille_params
-    params.require(:bouteille).permit(:millesime, :statut)
+    params.require(:bouteille).permit(:millesime)
   end
 end

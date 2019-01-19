@@ -1,18 +1,4 @@
-<div class="navbar-vin">
-  <%= link_to cellars_path do %>
-  <h1 class="navbar-font">Les caves de Jean L.</h1>
-  <% end %>
-  <%= link_to vins_path do %>
-  <div class="addwine">
-  <%=  image_tag "bouteille.png"%>
-  </div>
-  <% end %>
-</div>
 
-<!-- ================================ci-dessous Boites recap par cave
- -->
-
-<% if @cellar.id == 1 %>
 
 <div class= "wine_recap_cambou">
 
@@ -73,71 +59,6 @@
   </div>
 
 </div>
-
-<% else  %>
-
-<div class= "wine_recap_claudebernard">
-
-  <div class = "cellar_info">
-    <% vin_rouge = [] %>
-    <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rouge" && b.statut == nil %>
-        <% vin_rouge << b %>
-      <% end %>
-    <% end %>
-  <div class = "number_bottle" >  <%= vin_rouge.length %> </div>
-
-  <div class = "bottle_category"> Vins Rouges </div>
-  </div>
-
-  <div class = "cellar_info">
-    <% vin_blanc = [] %>
-    <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Vin" && b.vin.couleur == "blanc" && b.statut == nil %>
-        <% vin_blanc << b %>
-      <% end %>
-    <% end %>
-  <div class = "number_bottle"> <%= vin_blanc.length %> </div>
-  <div class = "bottle_category"> Vins Blancs </div>
-  </div>
-
-  <div class = "cellar_info">
-    <% vin_rose = [] %>
-    <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Vin" && b.vin.couleur == "rosé" && b.statut == nil  %>
-        <% vin_rose << b %>
-      <% end %>
-    <% end %>
-  <div class = "number_bottle"> <%= vin_rose.length %> </div>
-  <div class = "bottle_category"> Vins Rosés </div>
-  </div>
-
-  <div class = "cellar_info">
-    <% champagne = [] %>
-    <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Champagne" && b.statut == nil %>
-        <% vin_champagne << b %>
-      <% end %>
-    <% end %>
-  <div class = "number_bottle"> <%= champagne.length %> </div>
-  <div class = "bottle_category"> Champagnes </div>
-  </div>
-
-  <div class = "cellar_info">
-    <% petillant = [] %>
-    <% @bouteilles.each do |b| %>
-      <% if b.vin.categorie == "Petillant" && b.statut == nil %>
-        <% petillant << b %>
-      <% end %>
-    <% end %>
-  <div class = "number_bottle"> <%= petillant.length %> </div>
-  <div class = "bottle_category"> Vins Pétillants </div>
-  </div>
-
-</div>
-
-<% end %>
-
 
 <!-- ================================ci-dessous Les listes de vins
  -->
@@ -353,4 +274,10 @@
 </div>
 
 <p class="center"><%= link_to "Ajouter une bouteille déjà référencée à la cave", new_cellar_bouteille_path(params[:id]) %></p>
+
+<%= link_to vins_path do %>
+  <div class="addwine">
+  <%=  image_tag "bouteille.png"%>
+  </div>
+  <% end %>
 

@@ -1,7 +1,41 @@
-
-
-<h1>Bienvenue sur le Site des Caves</h1>
-
 <% if user_signed_in? %>
-  <p><%= link_to "Accéder à mes caves", cellars_path %></p>
+
+  <div class='start'>
+    <div class="pushthedoor">
+      <%= link_to "Accéder à mes caves", cellars_path %>
+    </div>
+  </div>
+
+
+<% else %>
+  <div class='home'>
+    <h4 class="enter"> </h4>
+  </div>
+
 <% end %>
+
+<div class="stepscontainer">
+  <div class="stepcard">
+    <div class="center number">
+      1
+    </div>
+    <div class ="text">
+      <p>Créez votre compte sécurisé en cliquant sur login puis sign up et ajoutez une première cave dans votre espace personnel</p>
+    </div>
+  </div>
+
+  <div class="stepcard">
+    <div class="center number"> 2
+    </div>
+    <div class ="text">
+      <p>Ajoutez des bouteilles dans votre cave virtuelle en quelques clics, qu'il s'agisse de Vins rouges, blancs, rosé, de Champagne ou de Vin Pétillant.</p>
+    </div>
+  </div>
+
+  <div class="stepcard">
+    <div class="center number "> 3 </div>
+    <div class ="text"><p>Grâce à l'algorithme et au savoir de Monsieur Jean, découvrez quand déguster vos vins pour qu'ils dégagent tous leurs arômes.</p>
+    </div>
+  </div>
+
+</div>

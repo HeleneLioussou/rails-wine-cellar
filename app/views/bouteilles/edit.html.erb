@@ -17,13 +17,10 @@
     </div>
   </div>
 
-  <div class="bu">
-  <br>
-  <br>
-    <%= simple_form_for [@cellar, @bouteille] do |b| %>
-      <%= b.input :statut, collection: ["bu"], label: "---- Marquer comme bu ----"%>
-      <%= b.submit "Sortir de la Cave", class: "btn btn-secondary btn-sm colorful" %>
-    <% end %>
+
+    <p> ---- Sortir cette Bouteille de votre Cave ---- </p>  <%= link_to 'Bu'.html_safe, cellar_bouteille_path(params[:id]),
+          method: :delete,
+          data: { confirm: "Etes-vous sûr de vouloir supprimer cette bouteille ?" }  %>
 
   <br>
   <br>
@@ -38,12 +35,3 @@
       <% end %>
     </p>
 
-  <br>
-  <br>
-
-  <p> ---- Supprimer ---- </p>  <%= link_to '<i class="far fa-minus-square"></i>'.html_safe, cellar_bouteille_path(params[:id]),
-          method: :delete,
-          data: { confirm: "Etes-vous sûr de vouloir supprimer cette bouteille ?" }  %>
-  </div>
-
-</div>

@@ -37,5 +37,15 @@
     <div class ="text"><p>Grâce à l'algorithme et au savoir de Monsieur Jean, découvrez quand déguster vos vins pour qu'ils dégagent tous leurs arômes.</p>
     </div>
   </div>
+  </div>
 
-</div>
+<% if user_signed_in? %>
+
+  <div class="center">
+    <div class="bas-de-page">
+      <p> Site réalisé par HL pour JL en Janvier 2019 <%= link_to "Contact", contact_path %></p>
+
+    </div>
+  </div>
+
+<% end %>

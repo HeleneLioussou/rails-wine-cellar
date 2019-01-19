@@ -50,10 +50,25 @@
 }
 
 .pushthedoor {
+  padding-top: 3px;
   text-align: center;
+  height: 30px;
   background-color: rgba(144,30,41, 0.9);
+}
+
+.pushthedoor:hover {
+  background-color: #EF3248;
 }
 
 .pushthedoor a {
   color: white !important;
 }
+
+.contact {
+  width: 700px;
+  font-size: 12px !important;
+  margin: 60px 120px;
+  text-align: justify;
+}
+
+
